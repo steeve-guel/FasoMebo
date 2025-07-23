@@ -1,0 +1,68 @@
+<section class="mt-4 p-4">
+  <h1 class="has-text-centered">REACTION DE QUELQUES BENEFICIAIRES</h1>
+
+  <!-- <div>
+    <div class="columns">
+
+      <div class="column">
+        <p>Paul Nacoulma, riverain :</p>
+        <figure class="image is-16by9">
+          <iframe
+            class="has-ratio"
+            width="440"
+            height="160"
+            src="https://www.youtube.com/embed/YFM2v2wVEj0"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </figure>
+      </div>
+
+      <div class="column">
+        <figure class="image is-16by9">
+          <iframe
+            class="has-ratio"
+            width="440"
+            height="160"
+            src="https://www.youtube.com/embed/YE7VzlLtp-4"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </figure>
+      </div>
+
+      <div class="column">
+        <figure class="image is-16by9">
+          <iframe
+            class="has-ratio"
+            width="440"
+            height="160"
+            src="https://www.youtube.com/embed/YE7VzlLtp-4"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </figure>
+      </div>
+
+    </div>
+  </div> -->
+  <div class="fixed-grid has-3-cols">
+    <div class="grid">
+      @for (item of videos; track $index) {
+      <div class="cell">
+        <p>{{ item.title }}</p>
+        <figure class="image is-16by9">
+          <iframe
+            class="has-ratio"
+            width="440"
+            height="160"
+            [src]="getSafeUrl(item.url)"
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </figure>
+      </div>
+      }
+    </div>
+  </div>
+</section>

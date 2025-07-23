@@ -1,0 +1,25 @@
+<button
+    class="js-modal-trigger button has-background-primary-20 has-text-primary-100"
+    data-target="modal-js-example"
+    (click)="openModal($event)"
+  >
+    Faire un don
+  </button>
+  <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Faire un don pour Faso Mêbo</p>
+        <button class="delete" aria-label="close" (click)="closeModal()"></button>
+      </header>
+      <section class="modal-card-body">
+        <h1>Formulaire</h1>
+      </section>
+      <footer class="modal-card-foot">
+        <div class="buttons">
+          <button class="button is-success">Save changes</button>
+          <button class="button" (click)="closeModal()">Cancel</button>
+        </div>
+      </footer>
+    </div>
+  </div>

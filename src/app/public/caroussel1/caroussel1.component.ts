@@ -24,8 +24,8 @@ export class Caroussel1Component {
    slides = [
     { 
       image: 'images/image1.jpg',
-      title: 'Projet Route Ouaga-Bobo',
-      description: 'Avancement à 75%',
+      title: 'Projet BOBO Dioulasso.',
+      description: 'Dépôt des  première pavés de Faso mêbo',
       loaded: false
     },
     { 

@@ -1,7 +1,4 @@
 /*=============== REUSABLE CSS CLASSES ===============*/
-.section {
-  padding: 4.5rem 0 2rem;
-}
 
 .section__title {
   font-size: var(--h1-font-size);
@@ -23,7 +20,7 @@
 
 /*=============== HEADER ===============*/
 .header {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -246,6 +243,7 @@
 .social_icons {
   width: auto;
   display: flex;
+  align-items: center;
 }
 .hamburger_icons_wrapper {
   display: flex;
