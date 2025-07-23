@@ -1,3 +1,7 @@
+@font-face {
+  font-family: Inter-Regular;
+  src: url(/public/fonts/Inter/static/Inter_28pt-Regular.ttf);
+}
 /* You can add global styles to this file, and also import other style files */
 :root {
   --header-height: 3rem;
@@ -14,8 +18,8 @@
   --container-color: #fff;
 
   /*========== Font and typography ==========*/
-  --body-font: "Open Sans", sans-serif;
-  --h1-font-size: 1.5rem;
+  --body-font: "Inter-Regular","Open Sans", sans-serif;
+  --h1-font-size: 1rem;
   --normal-font-size: 0.938rem;
   --tiny-font-size: 0.625rem;
 
