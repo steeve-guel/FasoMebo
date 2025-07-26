@@ -9,16 +9,18 @@
     <div class="modal-background"></div>
     <div class="modal-card">
       <header class="modal-card-head">
-        <p class="modal-card-title">Faire un don pour Faso Mêbo</p>
+        <p class="modal-card-title subtitle is-2 mb-1">Faire un don pour Faso Mêbo</p>
         <button class="delete" aria-label="close" (click)="closeModal()"></button>
       </header>
       <section class="modal-card-body">
-        <h1>Formulaire</h1>
+        <p class="subtitle is-3">Formulaire</p>
+        <!--Composant du formulaire pour le don-->
+        <app-form-don/>
       </section>
       <footer class="modal-card-foot">
         <div class="buttons">
-          <button class="button is-success">Save changes</button>
-          <button class="button" (click)="closeModal()">Cancel</button>
+          <!-- <button class="button is-success">Save changes</button> -->
+          <button class="button is-small" (click)="closeModal()">Cancel</button>
         </div>
       </footer>
     </div>

@@ -1,0 +1,180 @@
+<form [formGroup]="donForm" (ngSubmit)="onSubmit()">
+  <section class="content">
+    <div class="fixed-grid">
+      <div class="grid">
+        <!--cell-->
+        <div class="cell">
+          <label class="label is-small">Nom</label>
+          <div class="field">
+            <div class="control is-small">
+              <input
+                class="input is-small"
+                formControlName="nom"
+                type="text"
+                placeholder="Nom"
+              />
+            </div>
+          </div>
+        </div>
+        <!--cell2-->
+        <div class="cell">
+          <label class="label is-small">Nature du don</label>
+          <div class="select is-small is-multiple">
+            <select multiple formControlName="natureDon">
+              @for (item of natureDon; track $index) {
+              <option [value]="item.value">{{ item.title }}</option>
+              }
+            </select>
+          </div>
+        </div>
+
+        <!--cell 3-->
+        <div class="cell">
+          <label class="label is-small">Organisation</label>
+          <div class="field">
+            <div class="control is-small">
+              <input
+                class="input is-small"
+                type="text"
+                placeholder="Organisation"
+                formControlName="organisation"
+              />
+            </div>
+          </div>
+        </div>
+        <!--cell 4-->
+        <div class="cell">
+          <label class="label is-small">Contact</label>
+          <div class="field">
+            <div class="control is-small">
+              <input
+                class="input is-small"
+                type="text"
+                placeholder="Contact du responsable"
+                formControlName="contactResponsable"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!--cell 5-->
+        <div class="cell">
+          <label class="label is-small">Date du don</label>
+          <div class="field">
+            <div class="control is-small">
+              <input
+                class="input is-small"
+                formControlName="dateDon"
+                type="date"
+                placeholder=""
+              />
+            </div>
+          </div>
+        </div>
+        <!--cell 6-->
+        <div class="cell">
+          <label class="label is-small">Ville</label>
+          <div class="select is-small">
+            <select formControlName="ville">
+              @for (item of ville; track $index) {
+              <option [value]="item.value">{{ item.title }}</option>
+              }
+            </select>
+          </div>
+        </div>
+
+        <!--cell 7-->
+        <div class="cell">
+          <div class="field">
+            <label class="label is-small">Quantité</label>
+            <div class="control is-small">
+              <input
+                class="input is-small"
+                type="number"
+                placeholder="Quantité"
+                formControlName="quantite"
+              />
+            </div>
+          </div>
+        </div>
+        <!--cell 8-->
+        <div class="cell">
+          <label class="label is-small">Montant</label>
+          <div class="field has-addons">
+            <p class="control">
+              <span class="select is-small">
+                <select>
+                  <option>F CFA</option>
+                  <option>$</option>
+                  <option>€</option>
+                </select>
+              </span>
+            </p>
+            <p class="control is-expanded is-small">
+              <input
+                class="input is-small"
+                type="text"
+                placeholder="Amount of money"
+                formControlName="montant"
+              />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--media URL-->
+    <div class="mb-4">
+      <div formArrayName="mediaurls">
+        <p class="is-size-7">Medias URL</p>
+        <button class="button mb-2 is-small" type="button" (click)="addAlias()">
+          + Ajouter un media URL
+        </button>
+
+        <div class="field">
+          @for (alias of aliases.controls; track $index; let i = $index) {
+          <div>
+            <!-- The repeated alias template -->
+            <label class="label is-small" for="alias-{{ i }}">Média:</label>
+            <div class="control is-small mb-2">
+              <input
+                class="input is-small"
+                id="alias-{{ i }}"
+                type="text"
+                [formControlName]="i"
+                placeholder="Media URL"
+              />
+            </div>
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+
+    <!---->
+    <div>
+      <p class="subtitle is-3 mb-2">Description</p>
+      <p class="is-size-7">
+        Décrivez ici votre don de manière claire et précise (nature, état,
+        spécificités...)
+      </p>
+      <div class="field">
+        <label class="label is-small">Description</label>
+        <div class="control">
+          <textarea
+            class="textarea is-small"
+            placeholder="Description"
+            formControlName="description"
+          ></textarea>
+        </div>
+      </div>
+    </div>
+
+    <button
+      class="bulma-control-mixin is-small button my-4"
+      type="submit"
+      [disabled]="!donForm.valid"
+    >
+      Effectuer le don
+    </button>
+  </section>
+</form>

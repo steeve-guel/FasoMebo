@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
+import { FormDonComponent } from '../form-don/form-don.component';
 
 @Component({
   selector: 'app-modal-don',
-  imports: [],
+  imports: [FormDonComponent],
   templateUrl: './modal-don.component.html',
   styleUrl: './modal-don.component.css'
 })

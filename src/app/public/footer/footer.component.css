@@ -1,3 +1,17 @@
 .footer-custom{
   background-color: #262626;
 }
+
+.is-divider {
+  margin-block: 1rem; /* Centrer et réduire la largeur */
+  width: 100%; /* Largeur à 50% */
+  height: 1px; /* Épaisseur du trait */
+  background-color: #dbdbdb; /* Couleur (gris Bulma par défaut) */
+}
+
+.is-divider-min {
+  margin-block-end: 1rem; /* Centrer et réduire la largeur */
+  width: 20%; /* Largeur à 50% */
+  height: 2px; /* Épaisseur du trait */
+  background-color: #dbdbdb; /* Couleur (gris Bulma par défaut) */
+}
