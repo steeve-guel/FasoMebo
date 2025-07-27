@@ -22,22 +22,28 @@ import { CommonModule } from '@angular/common';
 export class Caroussel1Component {
 
    slides = [
-    { 
+    {
       image: 'images/image1.jpg',
       title: 'Projet BOBO Dioulasso.',
       description: 'Dépôt des  première pavés de Faso mêbo',
       loaded: false
     },
-    { 
+    {
       image: 'images/image2.jpg',
       title: 'Don de l\'artiste Floby',
       description: 'Offre de 100 tonnes de ciment',
       loaded: false
     },
-    { 
+    {
       image: 'images/image3.jpg',
       title: 'Don de l\'enfant',
       description: 'Offre de 10 tonnes de ciment',
+      loaded: false
+    },
+    {
+      image: 'images/image8.jpg',
+      title: 'Hage Matériaux',
+      description: 'Soutient Faso Mêbo avec un don de matériaux de construction et de l’électroménager',
       loaded: false
     }
   ];
