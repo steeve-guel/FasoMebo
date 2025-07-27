@@ -25,27 +25,6 @@ export class Parallax3Component {
     { title: 'Contact', content: 'Prenez contact', color: '#85c20a' }
   ]);
 
-  ngOnInit() {
-    this.meboService.listeInitiative().subscribe({
-      next: (data: Don[]) => {
-        this.listeDon = data;
-        console.log(this.listeDon);
-
-        let color1:'#85c20a';
-        let color2:'#fff';
-
-
-
-        this.sections = signal([
-
-        ])
-      },
-      error: () => {
-
-      }
-    });
-  }
-
   getTopPosition(index: number): string {
     return `calc(${index} * (100vh - 60px))`;
   }
