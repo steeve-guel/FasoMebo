@@ -13,8 +13,8 @@ export class MeboService {
 
   constructor(private http:HttpClient) { }
 
-  listeInitiative():Observable<Initiative>{
-    return this.http.get<Initiative>(`${this.url}`);
+  listeInitiative():Observable<Don[]>{
+    return this.http.get<Don[]>(`${this.url}`);
   }
 
   createInitiative(initiative: Don): Observable<Don> {

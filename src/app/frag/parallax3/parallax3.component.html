@@ -1,0 +1,24 @@
+<div class="parallax-container">
+  @for (section of sections(); track $index) {
+  <section
+    class="section"
+    [style.top]="getTopPosition($index)"
+    [style.z-index]="$index + 1"
+    [style.background-color]="section.color"
+    [class.dark-text]="section.textDark"
+  >
+    <div class="fixed">
+      <div class="grid">
+        <div class="cell">
+          <img src="/images/image1.jpg" alt="" srcset="" />
+        </div>
+
+        <div class="cell">
+          <h2>{{ section.title }}</h2>
+          <p>{{ section.content }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  }
+</div>

@@ -5,11 +5,13 @@ import { FormArray, FormBuilder, FormControl, ReactiveFormsModule, Validators } 
 import { MeboService } from '../../_service/mebo.service';
 import { Don } from '../../_models/don';
 import { DOCUMENT } from '@angular/common';
+import { NotificationComponent } from '../notification/notification.component';
+import { NotificiationService } from '../../_service/notificiation.service';
 
 
 @Component({
   selector: 'app-form-don',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, NotificationComponent],
   templateUrl: './form-don.component.html',
   styleUrl: './form-don.component.css'
 })
@@ -20,7 +22,9 @@ export class FormDonComponent {
 
   private meboService = inject(MeboService);
 
-  @Inject(DOCUMENT) private document: Document = inject(DOCUMENT)
+  @Inject(DOCUMENT) private document: Document = inject(DOCUMENT);
+
+  private notification = inject(NotificiationService);
 
   donForm = this.formBuilder.group({
     nom: ['', Validators.required],
@@ -82,10 +86,12 @@ export class FormDonComponent {
 
   ]
 
+  showSuccess = false;
+
   constructor() { }
 
   ngOnInit() {
-     this.document.documentElement.scrollTop = 0;
+    this.document.documentElement.scrollTop = 0;
   }
 
   get aliases() {
@@ -114,6 +120,14 @@ export class FormDonComponent {
     };
   }
 
+  closeModal() {
+    let e = document.querySelectorAll('.modal') || [];
+
+    e.forEach((val) => {
+      val.classList.remove('is-active');
+    });
+  }
+
   onSubmit() {
     console.log(this.donForm.value);
 
@@ -123,10 +137,23 @@ export class FormDonComponent {
       console.log(donData);
 
       this.meboService.createInitiative(donData).subscribe({
-        next:()=>{
-          window.location.reload();
+        next: () => {
+          // window.location.reload();
+
+
+
+          setTimeout(() => {
+            this.notification.show(`
+        Votre Don "${donData.natureDon}" a été enregistré avec succès !
+
+      `, 8000);
+          }, 500);
+
+          setTimeout(() => {
+            this.closeModal();
+          }, 9000);
         },
-        error:()=>{
+        error: () => {
 
         }
       })
@@ -134,3 +161,5 @@ export class FormDonComponent {
     }
   }
 }
+
+

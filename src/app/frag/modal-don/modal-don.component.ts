@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 import { FormDonComponent } from '../form-don/form-don.component';
 
 @Component({

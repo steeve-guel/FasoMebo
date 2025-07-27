@@ -1,0 +1,37 @@
+<!-- <div class="sliding-container">
+      @for (section of sections; track section.id; let i = $index) {
+        <section
+          class="sliding-section"
+          [class.active]="currentSection === i"
+          [style.background-image]="'url(' + section.background + ')'"
+          [style.z-index]="sections.length - i">
+          <div class="content" [class.visible]="currentSection === i">
+            <h2>{{section.title}}</h2>
+            <p>{{section.content}}</p>
+            @if (i < sections.length - 1) {
+              <button class="next-button" (click)="goToNext()">
+                ↓
+              </button>
+            }
+          </div>
+        </section>
+      }
+    </div> -->
+
+
+<div class="stacking-container">
+      @for (section of sections(); track section.id; let i = $index) {
+        <section
+          class="stacking-section"
+          [style.z-index]="sections().length - i"
+          [style.background-image]="'url(' + section.background + ')'"
+          [class.active]="activeIndex() >= i"
+          [style.transform]="getTransform(i)">
+
+          <div class="content" [class.visible]="activeIndex() === i">
+            <h2>{{section.title}}</h2>
+            <p>{{section.content}}</p>
+          </div>
+        </section>
+      }
+    </div>

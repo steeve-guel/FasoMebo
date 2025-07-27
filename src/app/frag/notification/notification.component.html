@@ -1,0 +1,11 @@
+@if (notification().visible) {
+<div
+  class="notification is-info is-light"
+  style="position: fixed; top: 20px; right: 20px; z-index: 1001"
+>
+  <button class="delete" (click)="hide()"></button>
+  @defer (when notification().message) {
+  {{ notification().message }}
+  }
+</div>
+}

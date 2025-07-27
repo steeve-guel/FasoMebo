@@ -1,0 +1,18 @@
+ <div class="parallax-container">
+      @for (item of data(); track item.id; let i = $index) {
+        <section class="parallax-section"
+                 [class.color1]="i % 2 === 0"
+                 [class.color2]="i % 2 !== 0"
+                 [class.active]="currentIndex() === i"
+                 [style.z-index]="data().length - i">
+
+          <div class="data-card">
+            <h2>{{ item.title }}</h2>
+            <div class="data-value">{{ item.value }}</div>
+            @if (item.description) {
+              <p class="data-description">{{ item.description }}</p>
+            }
+          </div>
+        </section>
+      }
+    </div>
