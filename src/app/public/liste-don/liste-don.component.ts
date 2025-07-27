@@ -1,12 +1,16 @@
 import { Component, inject, signal } from '@angular/core';
 import { Don } from '../../_models/don';
 import { MeboService } from '../../_service/mebo.service';
+import { DOCUMENT } from '@angular/common';
+import { ContextService } from '../../_service/context.service';
+import { AppearOnScrollDirective } from '../../_directives/appear-on-scroll.directive';
 
 @Component({
   selector: 'app-liste-don',
-  imports: [],
+  imports: [AppearOnScrollDirective],
   templateUrl: './liste-don.component.html',
-  styleUrl: './liste-don.component.css'
+  styleUrl: './liste-don.component.css',
+
 })
 export class ListeDonComponent {
 
@@ -17,7 +21,17 @@ export class ListeDonComponent {
 
   private meboService = inject(MeboService);
 
+
+
+  constructor(
+
+
+  ) {
+
+  }
+
   ngOnInit() {
+
     this.meboService.listeInitiative().subscribe({
       next: (data: Don[]) => {
         this.listeDon = data;
@@ -65,6 +79,14 @@ export class ListeDonComponent {
 
       }
     });
+  }
+
+  getTopPosition(index: number): string {
+    return `calc(${index} * (100vh - 60px))`;
+  }
+
+  getImagePath(filename: string): string {
+    return `/images/${filename}.jpg`; // Ajustez selon votre structure
   }
 }
 

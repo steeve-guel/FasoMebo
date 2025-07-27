@@ -1,0 +1,19 @@
+.fade-in {
+  opacity: 0;
+  transform: translateY(150px);
+  /* transition: opacity 2s cubic-bezier(.3,.89,.72,.11), transform 2s ease-out; */
+  transition: opacity 1.5s ease-out, transform 1.5s cubic-bezier(1,-0.01,.23,1);
+
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 10;     /* nombre de lignes max */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
